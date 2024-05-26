@@ -1,0 +1,61 @@
+{% extends "base.html" %}
+{% block title %}Online Voting System{% endblock %}
+{% block content %}
+<br>
+{% if messages %}
+  {% for message in messages %}
+    <div class="alert alert-success" role="alert">{{ message }}</div>
+  {% endfor %}
+{% endif %}
+
+<h1 class="display-10 d-flex justify-content-center">
+  Welcome to Online Voting System
+</h1>
+
+<hr class="my-5 bg-dark d-flex justify-content-center" style="height: 2px" />
+<div class="text-center">
+  {% if voting_open %}
+    <p class="text-success font-weight-bold" style="font-size: 24px; color:blue;">Voting is now open! Vote before {{ voting_end }}</p>
+  {% else %}
+    <p class="text-success font-weight-bold" style="font-size: 24px;color:red;">Voting will start at {{ voting_start }} and end at {{ voting_end }}</p>
+  {% endif %}
+</div>
+<p class="lead d-flex justify-content-center dark-box">
+  This is the platform to choose the right candidate!!!<br> You can vote for only one candidate per position.<br> 
+  From the dashboard, you can vote and see the results. If you're new, please click the <br> 
+  register button to sign up. Note: Only students are eligible to register and vote.<br>
+  <br>
+  
+</p>
+
+
+
+
+
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Roboto:wght@700&display=swap');
+
+  body {
+    background: linear-gradient(45deg, #b57bee, #00e3fd);
+    background-image: url("/static/home.jpg");
+    background-repeat: no-repeat;
+    background-attachment: fixed;
+    background-size: cover;
+  }
+
+  .dark-box {
+    color: black;
+    padding: 20px;
+    border-radius: 10px;
+    font-family: 'Roboto', sans-serif; /* Applying the custom font */
+    font-weight: 700; /* Making the font bold */
+    text-align: center; /* Centering text inside the box */
+  }
+
+  .font-weight-bold {
+    font-weight: bold;
+  
+  }
+</style>
+
+{% endblock %}
